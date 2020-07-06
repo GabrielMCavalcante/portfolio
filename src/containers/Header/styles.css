@@ -1,0 +1,92 @@
+.Header {
+    width: 100vw;
+    background-color: var(--primary-theme);
+    padding: 8px;
+    position: relative;
+}
+
+.Header ul {
+    list-style: none;
+}
+
+.Header ul li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    line-height: 2;
+    flex-wrap: wrap;
+}
+
+.Header ul li a :first-child {
+    margin-right: 4px;
+}
+
+.Header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Header nav .MenuToggler svg {
+    transform: scale(2);
+    margin: 0 8px;
+}
+
+.Header nav > span {
+    font-size: 1.3rem;
+}
+
+.Header nav .HeaderLinks {
+    display: none;
+}
+
+.HeaderDropdown {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    left: 0;
+    background: var(--primary-theme) url('../../assets/dropdown-background.png');
+}
+
+.HeaderDropdown.Open {
+    animation: openDropdownMenu 200ms linear forwards;
+}
+
+.HeaderDropdown.Close {
+    animation: closeDropdownMenu 200ms linear forwards;
+}
+
+.HeaderDropdown.Closed {
+    display: none;
+}
+
+.HeaderDropdown .DropdownLinks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.HeaderDropdown .DropdownLinks span {
+    margin-top: 5px;
+}
+
+@keyframes openDropdownMenu {
+    from {
+        display: none;
+        transform: translateY(-100%);
+    }
+    to {
+        display: block;
+        transform: translateY(0);
+    }
+}
+
+@keyframes closeDropdownMenu {
+    from {
+        display: block;
+        transform: translateY(0);
+    }
+    to {
+        display: none;
+        transform: translateY(-100%);
+    }
+}
