@@ -1,15 +1,20 @@
 .Header {
+    position: fixed;
+    top: 0;
+}
+
+.Header .HeaderContent {
+    position: relative;
     width: 100vw;
     background-color: var(--primary-theme);
     padding: 8px;
-    position: relative;
 }
 
-.Header ul {
+.Header .HeaderContent ul {
     list-style: none;
 }
 
-.Header ul li a {
+.Header .HeaderContent ul li a {
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -17,55 +22,55 @@
     flex-wrap: wrap;
 }
 
-.Header ul li a :first-child {
+.Header .HeaderContent ul li a :first-child {
     margin-right: 4px;
 }
 
-.Header nav {
+.Header .HeaderContent nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.Header nav .MenuToggler svg {
+.Header .HeaderContent nav .MenuToggler svg {
     transform: scale(2);
     margin: 0 8px;
 }
 
-.Header nav > span {
+.Header .HeaderContent nav > span {
     font-size: 1.3rem;
 }
 
-.Header nav .HeaderLinks {
+.Header .HeaderContent nav .HeaderLinks {
     display: none;
 }
 
-.HeaderDropdown {
+.Header .HeaderContent .HeaderDropdown {
     position: absolute;
-    z-index: -1;
     width: 100%;
+    z-index: -1;
     left: 0;
     background: var(--primary-theme) url('../../assets/dropdown-background.png');
 }
 
-.HeaderDropdown.Open {
+.Header .HeaderContent .HeaderDropdown.Open {
     animation: openDropdownMenu 200ms linear forwards;
 }
 
-.HeaderDropdown.Close {
+.Header .HeaderContent .HeaderDropdown.Close {
     animation: closeDropdownMenu 200ms linear forwards;
 }
 
-.HeaderDropdown.Closed {
+.Header .HeaderContent .HeaderDropdown.Closed {
     display: none;
 }
 
-.HeaderDropdown .DropdownLinks {
+.Header .HeaderContent .HeaderDropdown .DropdownLinks {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
-.HeaderDropdown .DropdownLinks span {
+.Header .HeaderContent .HeaderDropdown .DropdownLinks span {
     margin-top: 5px;
 }
 
@@ -77,6 +82,7 @@
     to {
         display: block;
         transform: translateY(0);
+        z-index: -1;
     }
 }
 
@@ -88,5 +94,6 @@
     to {
         display: none;
         transform: translateY(-100%);
+        z-index: -1;
     }
 }
