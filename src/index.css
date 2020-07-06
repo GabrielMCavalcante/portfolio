@@ -9,6 +9,7 @@
 * {
   font-family: 'Josefin Sans', sans-serif;
   box-sizing: border-box;
+  color: var(--primary-font-color);
 }
 
 body {
