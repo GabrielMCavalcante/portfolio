@@ -1,0 +1,114 @@
+.ProjectCard {
+    width: 90%;
+    height: 500px;
+    padding: 8px;
+    background: var(--primary-theme);
+    position: relative;
+    border-radius: 10px;
+    margin: 8px auto;
+}
+
+.ProjectCard .CardToggler {
+    position: relative;
+    right: -93%;
+    top: 1.2%;
+    width: fit-content;
+    transform: scale(2);
+    margin-bottom: 8px;
+    transition: transform 300ms linear;
+}
+
+.ProjectCard .ProjectImage {
+    width: 100%;
+    height: 40%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+
+.ProjectCard .ProjectInfo {
+    text-align: center;
+    transform: all 300ms linear;
+}
+
+.ProjectCard .ProjectInfo h2,
+.ProjectCard .ProjectInfo h3 {
+    margin: 8px auto;
+}
+
+.ProjectCard .ProjectInfo h3 {
+    font-size: 1rem;
+}
+
+.ProjectCard .ProjectTech {
+    width: 100%;
+    height: 24%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: all 300ms linear;
+}
+
+.ProjectCard .CardActions {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: all 300ms linear;
+}
+
+.ProjectCard.Minified {
+    display: flex;
+    height: fit-content;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.ProjectCard.Minified .ProjectImage {
+    width: 92%;
+    height: 40px;
+    background-size: 100%;
+    background-position: 50% 50%;
+}
+
+.ProjectCard.Minified .CardToggler {
+    transform: scale(2) rotate(-90deg);
+    height: 16px;
+    right: 0;
+    top: 4px;
+}
+
+.ProjectCard.Minified .ProjectInfo,
+.ProjectCard.Minified .ProjectTech,
+.ProjectCard.Minified .CardActions {
+    display: none;
+}
+
+.ProjectCard.Initial {
+    display: flex;
+    height: fit-content;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.ProjectCard.Initial .ProjectImage {
+    width: 92%;
+    height: 40px;
+    background-size: 100%;
+    background-position: 50% 50%;
+}
+
+.ProjectCard.Initial .CardToggler {
+    transform: scale(2) rotate(-90deg);
+    height: 16px;
+    right: 0;
+    top: 4px;
+}
+
+.ProjectCard.Initial .ProjectInfo,
+.ProjectCard.Initial .ProjectTech,
+.ProjectCard.Initial .CardActions {
+    display: none;
+}
