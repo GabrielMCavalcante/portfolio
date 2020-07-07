@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 // Icons
 import { FiChevronDown } from 'react-icons/fi'
@@ -13,6 +13,7 @@ import './styles.css'
 interface Props {
     project: {
         imageURL: string,
+        minifiedImageURL: string,
         title: string,
         description: string,
         technologies: string[],
@@ -22,11 +23,40 @@ interface Props {
 }
 
 function ProjectCard(props: Props) {
+
+    const [classes, setClasses] = useState(["ProjectCard", "Initial"])
+    const [image, setImage] = useState(props.project.imageURL)
+    const [notSet, setNotSet] = useState(true)
+    const isMinified = document.getElementsByClassName('ProjectInfo').item(0) ? false : true
+
+    if(notSet && isMinified) {
+        setNotSet(false) 
+        setImage(props.project.minifiedImageURL)
+    }
+
+    function toggleCard() {
+        const oldClasses = [...classes]
+        if (oldClasses.includes('Minified') || oldClasses.includes('Initial')) {
+            oldClasses.pop()
+            setImage(props.project.imageURL)
+        }
+        else { 
+            oldClasses.push('Minified') 
+            setImage(props.project.minifiedImageURL)
+        }
+        setClasses(oldClasses)
+    }
+
+    function checkMinified() { 
+        if (classes.includes('Minified') || 
+        (classes.includes('Initial') && isMinified)) 
+            toggleCard() 
+    }
+
     return (
-        <div className="ProjectCard">
-            <div className="CardToggler"><FiChevronDown /></div>
-            <div className="ProjectImage">
-                <img src={props.project.imageURL} alt={"Project " + props.project.title} />
+        <div className={classes.join(' ')} onClick={checkMinified}>
+            <div className="CardToggler" onClick={toggleCard}><FiChevronDown /></div>
+            <div className="ProjectImage" style={{ backgroundImage: `url(${image})` }}>
             </div>
             <div className="ProjectInfo">
                 <h2>{props.project.title}</h2>
