@@ -1,5 +1,8 @@
 import React from 'react'
 
+// CSS styles
+import './styles.css'
+
 interface Props {
     technology: string
 }
