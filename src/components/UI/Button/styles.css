@@ -1,7 +1,13 @@
 .Button {
-    width: 50%;
-    height: 100%;
+    width: 48%;
+    padding: 8px;
+    text-decoration: none;
+    text-align: center;
     background: #31819A;
     border-radius: 8px;
     border: none;
+}
+
+.Button:hover {
+    filter: brightness(90%);
 }
