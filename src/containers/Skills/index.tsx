@@ -8,8 +8,8 @@ import './styles.css'
 
 const skills = [
     { header: 'Web Technologies', items: ['HTML 5', 'CSS 3', 'Typescript'] },
-    { header: 'Frameworks', items: ['React', 'React Native'] },
-    { header: 'State Management', items: ['Redux', 'Context API', 'React Hooks'] }
+    { header: 'Frameworks', items: ['React', 'React Native', 'Vue'] },
+    { header: 'State Management', items: ['Redux', 'Context API', 'React Hooks', 'Vuex'] }
 ]
 
 function Skills() {
