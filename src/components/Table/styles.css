@@ -1,0 +1,32 @@
+.Table {
+    width: 95%;
+    background: var(--primary-theme);
+    border-radius: 10px;
+    border-spacing: 0;
+}
+
+.Table thead tr th,
+.Table tbody tr td {
+    text-align: center;
+}
+
+.Table thead tr th {
+    font-size: 0.95rem;
+    padding: 8px 4px;
+}
+
+.Table tbody tr td {
+    border-top: 2px solid #31819A;
+    padding: 8px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.Table thead tr th:not(:last-child),
+.Table tbody tr td:not(:last-child) {
+    border-right: 2px solid #31819A;
+}
+
+.Table tbody tr:last-child td {
+    padding-bottom: 10px;
+}
