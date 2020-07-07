@@ -4,6 +4,7 @@ import React from 'react'
 import Header from './Header'
 import Title from './Title'
 import Skills from './Skills'
+import Projects from './Projects'
 
 function App() {
   return (
@@ -11,8 +12,8 @@ function App() {
       <Header />
       <Title />
       <Skills />
-   {/*<Projects />
-      <Contact />
+      <Projects />
+    {/*<Contact />
       <Footer />*/}
     </div>
   )
