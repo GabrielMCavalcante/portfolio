@@ -1,0 +1,67 @@
+.Form {
+    background: var(--primary-theme);
+    width: 92%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 10px;
+}
+
+.Form label {
+    font-size: 1.25rem;
+    margin-top: 8px;
+}
+
+.Form input,
+.Form textarea {
+    margin: 8px auto;
+    outline: none;
+    border-radius: 8px;
+    border: none;
+    color: var(--secondary-font-color);
+    font-size: 1.1rem;
+    padding: 8px;
+    width: 100%;
+}
+
+.Form input:focus,
+.Form textarea:focus {
+    border: 3px solid var(--secondary-theme);
+}
+
+.Form input {
+    height: 35px;
+}
+
+.Form textarea {
+    min-height: 100px;
+    max-height: 100px;
+    resize: none;
+}
+
+.Form .Invalid {
+    border: 2px solid crimson;
+}
+
+.Form button {
+    width: 48%;
+    padding: 8px;
+    text-decoration: none;
+    text-align: center;
+    background: #31819A;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.Form button:hover {
+    filter: brightness(90%);
+}
+
+.Form button:disabled {
+    cursor: not-allowed;
+    filter: brightness(80%);
+}
