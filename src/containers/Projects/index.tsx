@@ -5,6 +5,7 @@ import axios from 'axios-config'
 
 // Components
 import ProjectCards from 'components/ProjectCards'
+import Spinner from 'components/UI/Spinner'
 
 // CSS styles
 import './styles.css'
@@ -59,6 +60,7 @@ function Projects() {
     return (
         <div className="Projects">
             <h2>My Projects</h2>
+            {!projects && <Spinner />}
             {projects && <ProjectCards projects={projects} />}
         </div>
     )

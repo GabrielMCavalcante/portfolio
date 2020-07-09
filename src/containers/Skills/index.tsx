@@ -5,6 +5,7 @@ import axios from 'axios-config'
 
 // Components
 import Table from 'components/Table'
+import Spinner from 'components/UI/Spinner'
 
 // CSS styles
 import './styles.css'
@@ -44,6 +45,7 @@ function Skills() {
     return (
         <div className="Skills">
             <h2>My Skills</h2>
+            {!skills && <Spinner />}
             {skills && <Table data={skills} />}
         </div>
     )
