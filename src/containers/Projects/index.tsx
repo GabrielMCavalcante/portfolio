@@ -1,54 +1,65 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+
+// Axios instance
+import axios from 'axios-config'
 
 // Components
 import ProjectCards from 'components/ProjectCards'
 
-// Images
-import notes from 'assets/notes-project.png'
-import notesMinified from 'assets/notes-project-minified.png'
-import tictactoe from 'assets/tictactoe-project.png'
-import tictactoeMinified from 'assets/tictactoe-project-minified.png'
-import statisticsAnswerChecker from 'assets/statistics-answer-checker-project.jpg'
-import statisticsAnswerCheckerMinified from 'assets/statistics-answer-checker-project-minified.jpg'
-
 // CSS styles
 import './styles.css'
 
-const projects = [
-    { 
-        imageURL: notes,
-        minifiedImageURL: notesMinified, 
-        title: 'Notes', 
-        description: 'A Vue - Firebase app in which the user can create, edit and delete personal annotations', 
-        technologies: ['Vue', 'Vuex', 'Vuetify'],
-        demoLink: 'https://notes-5cf6a.firebaseapp.com',
-        sourceLink: 'https://github.com/GabrielMCavalcante/notes-firebase-app'
-    },
-    { 
-        imageURL: tictactoe,
-        minifiedImageURL: tictactoeMinified, 
-        title: 'Tic Tac Toe', 
-        description: 'A React project where you can play the famous game Tic Tac Toe', 
-        technologies: ['React', 'Redux', 'Typescript'],
-        demoLink: 'https://gabrielmcavalcante.github.io/TicTacToe/#/',
-        sourceLink: 'https://github.com/GabrielMCavalcante/TicTacToe'
-    },
-    { 
-        imageURL: statisticsAnswerChecker,
-        minifiedImageURL: statisticsAnswerCheckerMinified, 
-        title: 'Statistics Answer Checker', 
-        description: 'A React app that helps students check statistics exercises answers', 
-        technologies: ['React', 'Router', 'Typescript', 'Papaparse'],
-        demoLink: 'https://gabrielmcavalcante.github.io/statistics-answer-checker/#/',
-        sourceLink: 'https://github.com/GabrielMCavalcante/statistics-answer-checker'
+interface Document {
+    fields: {
+        imageURL: { stringValue: string },
+        minifiedImageURL: { stringValue: string },
+        title: { stringValue: string },
+        description: { stringValue: string },
+        technologies: { arrayValue: { values: { stringValue: string }[] } },
+        demoLink: { stringValue: string },
+        sourceLink: { stringValue: string }
     }
-]
+}
+
+interface Project {
+    imageURL: string,
+    minifiedImageURL: string,
+    title: string,
+    description: string,
+    technologies: string[],
+    demoLink: string,
+    sourceLink: string
+}
 
 function Projects() {
+
+    const [projects, setProjects] = useState<Project[]>()
+
+    useEffect(() => {
+        async function fetchProjects() {
+            const response = await axios.get('/projects')
+            const documents: Document[] = response.data.documents
+            const parsedProjects: Project[] = []
+            documents.forEach(doc => {
+                parsedProjects.push({
+                    imageURL: doc.fields.imageURL.stringValue,
+                    minifiedImageURL: doc.fields.minifiedImageURL.stringValue,
+                    title: doc.fields.title.stringValue,
+                    description: doc.fields.description.stringValue,
+                    technologies: doc.fields.technologies.arrayValue.values.map(value => value.stringValue),
+                    demoLink: doc.fields.demoLink.stringValue,
+                    sourceLink: doc.fields.sourceLink.stringValue
+                })
+            })
+            setProjects(parsedProjects)
+        }
+        fetchProjects()
+    }, [])
+
     return (
         <div className="Projects">
             <h2>My Projects</h2>
-            <ProjectCards projects={projects}/>
+            {projects && <ProjectCards projects={projects} />}
         </div>
     )
 }
