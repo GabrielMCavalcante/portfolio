@@ -5,6 +5,7 @@ import Header from './Header'
 import Title from './Title'
 import Skills from './Skills'
 import Projects from './Projects'
+import Contact from './Contact'
 
 function App() {
   return (
@@ -13,8 +14,8 @@ function App() {
       <Title />
       <Skills />
       <Projects />
-    {/*<Contact />
-      <Footer />*/}
+      <Contact />
+      {/*<Footer />*/}
     </div>
   )
 }
