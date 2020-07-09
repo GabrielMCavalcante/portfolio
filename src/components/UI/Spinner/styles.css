@@ -1,0 +1,14 @@
+.Spinner {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border-top: 3px solid var(--primary-theme);
+    border-right: 3px solid transparent;
+    animation: spinner 1.5s linear infinite;
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
