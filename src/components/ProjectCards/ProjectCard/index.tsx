@@ -24,12 +24,11 @@ interface Props {
 
 function ProjectCard(props: Props) {
 
-    const [classes, setClasses] = useState(["ProjectCard", "Initial"])
+    const [classes, setClasses] = useState(["ProjectCard", "Minified"])
     const [image, setImage] = useState(props.project.imageURL)
     const [notSet, setNotSet] = useState(true)
-    const isMinified = document.getElementsByClassName('ProjectInfo').item(0) ? false : true
 
-    if(notSet && isMinified) {
+    if(notSet) {
         setNotSet(false) 
         setImage(props.project.minifiedImageURL)
     }
@@ -48,9 +47,7 @@ function ProjectCard(props: Props) {
     }
 
     function checkMinified() { 
-        if (classes.includes('Minified') || 
-        (classes.includes('Initial') && isMinified)) 
-            toggleCard() 
+        if (classes.includes('Minified')) toggleCard() 
     }
 
     return (
