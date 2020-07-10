@@ -6,6 +6,7 @@ import Title from './Title'
 import Skills from './Skills'
 import Projects from './Projects'
 import Contact from './Contact'
+import Footer from './Footer'
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <Skills />
       <Projects />
       <Contact />
-      {/*<Footer />*/}
+      <Footer />
     </div>
   )
 }
