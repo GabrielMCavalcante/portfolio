@@ -4,3 +4,8 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.Skills .SpinnerResizer {
+    width: 60px;
+    height: 60px;
+}
