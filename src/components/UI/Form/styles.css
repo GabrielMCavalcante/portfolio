@@ -15,7 +15,7 @@
 }
 
 .Form ::placeholder {
-    color: #ccc;
+    color: #bbb;
 }
 
 .Form input,
@@ -24,6 +24,7 @@
     outline: none;
     border-radius: 8px;
     border: none;
+    background: #ddd;
     color: var(--secondary-font-color);
     font-size: 1.1rem;
     padding: 8px;
@@ -40,8 +41,7 @@
 }
 
 .Form textarea {
-    min-height: 100px;
-    max-height: 100px;
+    height: 100px;
     resize: none;
 }
 
@@ -81,4 +81,73 @@
 .Form button:disabled {
     cursor: not-allowed;
     filter: brightness(80%);
+}
+
+@media screen and (min-width: 700px) {
+    .Form button {
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .Form label {
+        font-size: 1.7rem;
+    }
+
+    .Form input, .Form textarea {
+        font-size: 1.6rem;
+        height: 55px;
+    }
+    
+    .Form textarea {
+        height: 200px;
+    }
+    
+    .Form p {
+        font-size: 1.3rem;
+    }
+
+    .Form button {
+        font-size: 1.3rem;
+        height: 50px;
+    }
+
+    .Form .SpinnerResizer {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media screen and (min-width: 3000px) {
+    .Form {
+        padding: 32px;
+        border-radius: 40px;
+    }
+    .Form label {
+        font-size: 5.5rem;
+    }
+    .Form label:not(:first-child) {
+        margin-top: 60px;
+    }
+    .Form input, .Form textarea {
+        font-size: 5.6rem;
+        height: 120px;
+        border-radius: 30px;
+    }
+    .Form textarea {
+        height: 550px;
+    }
+    .Form button {
+        font-size: 4.3rem;
+        height: 95px;
+        margin-top: 30px;
+        border-radius: 30px;
+    }
+    .Form p {
+        font-size: 3.5rem;
+    }
+    .Form .SpinnerResizer {
+        width: 50px;
+        height: 50px;
+    }
 }

@@ -10,3 +10,38 @@
     width: 60px;
     height: 60px;
 }
+
+@media screen and (min-width: 500px) {
+    .Projects {
+        width: 84%;
+        margin: 24px auto;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .Projects {
+        width: 64%;
+        margin: 24px auto;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .Projects h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .Projects {
+        width: 40%;
+    }
+}
+
+@media screen and (min-width: 3000px) {
+    .Projects {
+        width: 64%;
+    }
+    .Projects h2 {
+        font-size: 5rem;
+    }
+}

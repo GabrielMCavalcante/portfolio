@@ -1,13 +1,13 @@
 .FormResponse {
     position: absolute;
     width: 92%;
-    height: 50vh;
+    height: 100%;
 }
 
 .FormResponse .FormResponseContent {
     background: var(--primary-theme);
     width: 100%;
-    height: 347px;
+    height: 100%;
     padding: 8px 16px;
     border-radius: 10px;
     position: relative;
@@ -53,4 +53,50 @@
 
 .FormResponse button:hover {
     filter: brightness(90%);
+}
+
+@media screen and (min-width: 900px) {
+
+    .StatusIcon {
+        transform: scale(10) !important;
+    }
+
+    .FormResponse .CloseIcon {
+        top: 20px;
+        right: 20px;
+        transform: scale(2.5);
+    }
+
+    .FormResponse .Response h2 {
+        font-size: 2.2rem;
+    }
+
+    .FormResponse button.ResponseAction {
+        font-size: 1.7rem;
+        height: 50px;
+    }
+}
+
+@media screen and (min-width: 3000px) {
+    .FormResponse .Response h2 {
+        font-size: 6.2rem;
+    }
+    
+    .StatusIcon {
+        transform: scale(30) !important;
+    }
+    
+    .FormResponse button.ResponseAction {
+        font-size: 5.7rem;
+        height: 140px;
+        position: relative;
+        bottom: -50px;
+        border-radius: 35px;
+    }
+    
+    .FormResponse .CloseIcon {
+        top: 66px;
+        right: 54px;
+        transform: scale(7.5);
+    }
 }

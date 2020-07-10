@@ -12,4 +12,37 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+}
+
+@media screen and (min-width: 500px) {
+    .Contact {
+        width: 84%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .Contact {
+        width: 64%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .Contact h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .Contact {
+        width: 40%;
+    }
+}
+
+@media screen and (min-width: 3000px) {
+    .Contact h2 {
+        font-size: 5rem;
+    }
 }

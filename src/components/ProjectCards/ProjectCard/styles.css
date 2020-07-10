@@ -16,6 +16,7 @@
     transform: scale(2);
     margin-bottom: 8px;
     transition: transform 300ms linear;
+    cursor: pointer;
 }
 
 .ProjectCard .ProjectImage {
@@ -28,11 +29,9 @@
 
 .ProjectCard .ProjectInfo {
     text-align: center;
-    transform: all 300ms linear;
 }
 
-.ProjectCard .ProjectInfo h2,
-.ProjectCard .ProjectInfo h3 {
+.ProjectCard .ProjectInfo h2, .ProjectCard .ProjectInfo h3 {
     margin: 8px auto;
 }
 
@@ -42,11 +41,11 @@
 
 .ProjectCard .ProjectTech {
     width: 100%;
-    height: 24%;
+    height: 90px;
+    overflow: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: all 300ms linear;
 }
 
 .ProjectCard .CardActions {
@@ -54,7 +53,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transform: all 300ms linear;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    padding: 8px;
 }
 
 .ProjectCard.Minified {
@@ -63,6 +65,7 @@
     justify-content: space-between;
     align-items: center;
     flex-direction: row-reverse;
+    cursor: pointer;
 }
 
 .ProjectCard.Minified .ProjectImage {
@@ -77,38 +80,120 @@
     height: 16px;
     right: 0;
     top: 4px;
+    cursor: pointer;
 }
 
-.ProjectCard.Minified .ProjectInfo,
-.ProjectCard.Minified .ProjectTech,
-.ProjectCard.Minified .CardActions {
+.ProjectCard.Minified .ProjectInfo, .ProjectCard.Minified .ProjectTech, .ProjectCard.Minified .CardActions {
     display: none;
 }
 
-.ProjectCard.Initial {
-    display: flex;
-    height: fit-content;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row-reverse;
+@media screen and (min-width: 411px) {
+    .ProjectCard.Minified .ProjectImage {
+        zoom: 1.4;
+    }
 }
 
-.ProjectCard.Initial .ProjectImage {
-    width: 92%;
-    height: 40px;
-    background-size: 100%;
-    background-position: 50% 50%;
+@media screen and (min-width: 500px) {
+    .ProjectCard.Minified .ProjectImage {
+        zoom: 1.6;
+    }
 }
 
-.ProjectCard.Initial .CardToggler {
-    transform: scale(2) rotate(-90deg);
-    height: 16px;
-    right: 0;
-    top: 4px;
+@media screen and (min-width: 700px) {
+    .ProjectCard.Minified .ProjectImage {
+        zoom: 1.5;
+    }
 }
 
-.ProjectCard.Initial .ProjectInfo,
-.ProjectCard.Initial .ProjectTech,
-.ProjectCard.Initial .CardActions {
-    display: none;
+@media screen and (min-width: 900px) {
+    .ProjectCard .ProjectInfo h3 {
+        font-size: 1.7rem;
+    }
+    .ProjectInfo h2 {
+        font-size: 2.1rem;
+    }
+    .ProjectCard .ProjectTechnology {
+        font-size: 1.3rem;
+    }
+    .ProjectCard .CardActions {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .ProjectCard {
+        width: 70%;
+    }
+    .ProjectCard .CardToggler {
+        position: relative;
+        right: -96%;
+        transform: scale(2.5);
+    }
+    .ProjectCard.Minified .ProjectImage {
+        zoom: 1.9;
+    }
+    .ProjectCard.Minified .CardToggler {
+        transform: scale(2.5) rotate(-90deg);
+        right: 10px;
+    }
+}
+
+@media screen and (min-width: 3000px) {
+    .ProjectCard.Minified .ProjectImage {
+        zoom: 5.9;
+    }
+    .ProjectCard {
+        border-radius: 40px;
+        height: 1900px;
+    }
+    .ProjectCard.Minified .CardToggler {
+        transform: scale(8.5) rotate(-90deg);
+        right: 52px;
+    }
+    .ProjectCard .CardToggler {
+        position: relative;
+        right: -96%;
+        top: 3%;
+        transform: scale(8.5);
+    }
+    .ProjectCard:not(.Minified) .ProjectImage {
+        height: 800px;
+        width: 97%;
+        margin: 86px auto;
+        border-radius: 40px;
+    }
+    .ProjectCard .ProjectInfo {
+        margin-top: 24px;
+    }
+    .ProjectCard .ProjectInfo h2 {
+        font-size: 7rem;
+    }
+    .ProjectCard .ProjectInfo h3 {
+        font-size: 4.7rem;
+    }
+    .ProjectCard .ProjectTech {
+        height: 490px;
+    }
+    .ProjectCard .ProjectTechnology {
+        width: 45%;
+        height: 90px;
+        border-radius: 10px;
+        line-height: 1.4;
+        font-size: 4.3rem;
+    }
+    .ProjectCard .CardActions {
+        width: 95%;
+        left: 40px;
+        padding: 8px;
+        font-size: 5rem;
+    }
+    .ProjectCard .Button {
+        width: 48%;
+        padding: 16px;
+        text-decoration: none;
+        text-align: center;
+        background: #31819A;
+        border-radius: 40px;
+        border: none;
+    }
 }

@@ -2,3 +2,28 @@
     margin: 77px auto 20px;
     text-align: center;
 }
+
+@media screen and (min-width: 700px) {
+    .Title {
+        margin: 100px auto 20px;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .Title {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .Title {
+        margin: 120px auto 20px;
+    }
+}
+
+@media screen and (min-width: 3000px) {
+    .Title {
+        margin: 336px auto 20px;
+        font-size: 4rem;
+    }
+}

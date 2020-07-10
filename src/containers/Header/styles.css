@@ -31,14 +31,16 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-right: 16px;
 }
 
 .Header .HeaderContent nav .MenuToggler svg {
     transform: scale(2);
     margin: 0 8px;
+    cursor: pointer;
 }
 
-.Header .HeaderContent nav > span {
+.Header .HeaderContent nav>span {
     font-size: 1.3rem;
 }
 
@@ -74,6 +76,12 @@
 .Header .HeaderContent .HeaderDropdown .DropdownLinks span {
     margin-top: 5px;
 }
+.Header .HeaderContent li:hover a :first-child, 
+.Header .HeaderContent li:hover a :nth-child(2), 
+.Header .HeaderContent li:hover a :last-child, 
+.Header .HeaderContent li:hover a span {
+    color: var(--secondary-font-color);
+}
 
 @keyframes openDropdownMenu {
     from {
@@ -96,5 +104,64 @@
         display: none;
         transform: translateY(-100%);
         z-index: -1;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .Header .HeaderContent {
+        padding: 4px 8px;
+    }
+    .Header .HeaderContent nav .HeaderLinks {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .Header .HeaderContent nav span.Logo {
+        margin: auto -8px auto 8px;
+    }
+    .Header .HeaderContent nav .HeaderLinks li {
+        margin: auto 10px;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+    }
+    .Header .HeaderContent nav .HeaderLinks li span {
+        margin-top: 5px;
+    }
+    .Header .HeaderContent nav .MenuToggler {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .Header .HeaderContent nav .HeaderLinks li {
+        font-size: 1.2rem;
+    }
+    .Header .HeaderContent nav span.Logo {
+        font-size: 1.7rem;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .Header .HeaderContent nav .HeaderLinks li {
+        font-size: 1.4rem;
+    }
+    .Header .HeaderContent nav span.Logo {
+        font-size: 2rem;
+    }  
+}
+
+@media screen and (min-width: 3000px) {
+    .Header .HeaderContent nav {
+        padding: 50px;
+    }
+
+    .Header .HeaderContent nav span.Logo {
+        font-size: 7rem;
+    }
+
+    .Header .HeaderContent nav .HeaderLinks li {
+        font-size: 4rem;
+        margin: auto 50px;
     }
 }

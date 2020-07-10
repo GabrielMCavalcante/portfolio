@@ -7,6 +7,8 @@
     background: var(--secondary-theme);
     padding: 8px;
     margin-top: 20px;
+    position: relative;
+    bottom: -40px;
 }
 
 .Footer p a {
@@ -27,6 +29,25 @@
     margin-left: 4px;
 }
 
+.Footer p.Email {
+    position: relative;
+}
+
+.Footer p.Email span.CopyMail {
+    position: absolute;
+    top: 3%;
+    right: -6.5%;
+    cursor: pointer;
+}
+
+.Footer p.Email span.CopyFeedback {
+    display: none;
+}
+
+.Footer p.Email span.CopyFeedback.Show {
+    display: block;
+}
+
 .Footer p a:first-child {
     margin-right: 8px;
 }
@@ -34,4 +55,28 @@
 
 .Footer p a:last-child {
     margin-left: 8px;
+}
+
+.Footer a:hover :first-child, 
+.Footer a:hover :nth-child(2), 
+.Footer a:hover :last-child, 
+.Footer a:hover span {
+    color: var(--secondary-font-color);
+}
+
+@media screen and (min-width: 900px) {
+    .Footer {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 3000px) {
+    .Footer {
+        font-size: 4.5rem;
+        padding: 24px;
+    }
+    
+    .Footer p, .Footer p a {
+        margin: 10px auto;
+    }
 }

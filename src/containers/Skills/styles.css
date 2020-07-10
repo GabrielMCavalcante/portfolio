@@ -9,3 +9,35 @@
     width: 60px;
     height: 60px;
 }
+
+@media screen and (min-width: 500px) {
+    .Skills {
+        width: 84%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .Skills {
+        width: 64%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .Skills h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .Skills {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 3000px) {
+    .Skills h2 {
+        font-size: 5rem;
+    }
+}
