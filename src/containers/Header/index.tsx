@@ -54,9 +54,7 @@ function Header() {
                 <div className={classes.join(' ')}>
                     <ul className="DropdownLinks">
                         <li>
-                            <a
-                                href="_self"
-                            >
+                            <a href="#skills" onClick={toggleDropdown}>
                                 <FiSettings />
                                 <span>Skills</span>
                             </a>
@@ -72,12 +70,11 @@ function Header() {
                             </a>
                         </li>
                         <li>
-                            <a
-                                href="_self"
-                            >
-                                <FiMail />
-                                <span>Contact</span>
+                            <a href="#projects" onClick={toggleDropdown}>
+                                <FiClipboard />
+                                <span>Projects</span>
                             </a>
+
                         </li>
                         <li>
                             <a
@@ -90,11 +87,9 @@ function Header() {
                             </a>
                         </li>
                         <li>
-                            <a
-                                href="_self"
-                            >
-                                <FiClipboard />
-                                <span>Projects</span>
+                            <a href="#contact" onClick={toggleDropdown}>
+                                <FiMail />
+                                <span>Contact</span>
                             </a>
                         </li>
                     </ul>
