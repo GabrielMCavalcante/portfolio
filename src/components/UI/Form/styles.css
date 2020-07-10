@@ -14,6 +14,10 @@
     margin-top: 8px;
 }
 
+.Form ::placeholder {
+    color: #ccc;
+}
+
 .Form input,
 .Form textarea {
     margin: 8px auto;
@@ -45,6 +49,10 @@
     border: 2px solid crimson;
 }
 
+.Form p {
+    color: var(--secondary-font-color);
+}
+
 .Form button {
     width: 48%;
     padding: 8px;
@@ -55,6 +63,15 @@
     border: none;
     outline: none;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Form .SpinnerResizer {
+    width: 20px;
+    height: 20px;
+    filter: brightness(1.5);
 }
 
 .Form button:hover {
