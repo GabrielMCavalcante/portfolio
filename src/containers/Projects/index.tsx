@@ -60,8 +60,11 @@ function Projects() {
     return (
         <div className="Projects">
             <h2>My Projects</h2>
-            {!projects && <Spinner />}
-            {projects && <ProjectCards projects={projects} />}
+            {
+                projects 
+                ? <ProjectCards projects={projects} />
+                : <div className="SpinnerResizer"><Spinner /></div>
+            }
         </div>
     )
 }
