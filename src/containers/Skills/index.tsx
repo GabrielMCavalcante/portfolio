@@ -43,7 +43,7 @@ function Skills() {
     }, [])
 
     return (
-        <div className="Skills">
+        <div id="skills" className="Skills">
             <h2>My Skills</h2>
             {
                 skills 
