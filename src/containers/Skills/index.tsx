@@ -45,8 +45,11 @@ function Skills() {
     return (
         <div className="Skills">
             <h2>My Skills</h2>
-            {!skills && <Spinner />}
-            {skills && <Table data={skills} />}
+            {
+                skills 
+                ? <Table data={skills} />
+                : <div className="SpinnerResizer"><Spinner /></div>
+            }
         </div>
     )
 }
