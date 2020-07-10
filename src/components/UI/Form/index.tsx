@@ -1,4 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+
+// Components
+import Spinner from 'components/UI/Spinner'
 
 // CSS styles
 import './styles.css'
@@ -9,21 +12,34 @@ interface Field {
     type: string,
     value: string,
     placeholder?: string,
-    config?: { [key: string]: any }[],
+    config?: { [key: string]: any },
     validation?: (RegExp | string),
+    feedback?: string,
     isValid: boolean,
     touched: boolean
 }
 
 interface Props {
     fields: Field[],
-    onsubmit: (...params: any[]) => void
+    onsubmit: (...params: any[]) => void,
+    loading: boolean,
+    resetForm: boolean
 }
 
 function Form(props: Props) {
 
     const [formValid, setFormValid] = useState(false)
     const [fields, setFields] = useState(props.fields)
+
+    useEffect(() => {
+        if(props.resetForm) {
+            const oldFields = [...fields]
+            oldFields.forEach(field => {
+                field.value = ''
+            })
+            setFields(oldFields)
+        }
+    }, [props.resetForm]) // eslint-disable-line
 
     function checkValidation(event: React.ChangeEvent<any>, field: Field) {
         const thisField = fields.filter(fd => fd.name === field.name)[0]
@@ -35,9 +51,9 @@ function Form(props: Props) {
 
         thisField.value = event.target.value
         thisField.isValid = valid
-        if(!thisField.touched)
+        if (!thisField.touched)
             thisField.touched = true
-        
+
         const parsedFields = fields.map(fd => {
             if (fd.name !== field.name) return fd
             else return thisField
@@ -56,7 +72,10 @@ function Form(props: Props) {
 
     function submitHandler(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
-        const fieldsValues = fields.map(field => [field.name, field.value])
+        const fieldsValues = fields.map(field => ({ [field.name]: field.value }))
+            .reduce((acc, el) => (
+                { ...acc, [Object.keys(el)[0]]: el[Object.keys(el)[0]] }
+            ), {})
         props.onsubmit(fieldsValues)
     }
 
@@ -67,22 +86,36 @@ function Form(props: Props) {
                     <label htmlFor={field.name}>{field.label}</label>
                     {
                         field.type !== 'textarea'
-                            ? <input
-                                value={field.value}
-                                className={!field.isValid && field.touched ? 'Invalid' : ''}
-                                type={field.type}
-                                {...field.config}
-                                onChange={e => checkValidation(e, field)}
-                            />
-                            : <textarea className={!field.isValid && field.touched ? 'Invalid' : ''}
-                                value={field.value}
-                                {...field.config}
-                                onChange={e => checkValidation(e, field)}
-                            />
+                            ? (
+                                <>
+                                    <input
+                                        value={field.value}
+                                        className={!field.isValid && field.touched ? 'Invalid' : ''}
+                                        type={field.type}
+                                        {...field.config}
+                                        onChange={e => checkValidation(e, field)}
+                                    />
+                                    {!field.isValid && field.touched && field.feedback && <p>{field.feedback}</p>}
+                                </>)
+                            : (
+                                <>
+                                    <textarea className={!field.isValid && field.touched ? 'Invalid' : ''}
+                                        value={field.value}
+                                        {...field.config}
+                                        onChange={e => checkValidation(e, field)}
+                                    />
+                                    { !field.isValid && field.touched && field.feedback && <p>{field.feedback}</p> }
+                                </>
+                            )
                     }
                 </React.Fragment>
             ))}
-            <button disabled={!formValid}>Send Message</button>
+            <button disabled={!formValid || props.loading}>
+                {
+                    props.loading 
+                    ? <div className="SpinnerResizer"><Spinner /></div>
+                    : 'Send E-mail'}
+            </button>
         </form>
     )
 }
