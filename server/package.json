@@ -1,0 +1,19 @@
+{
+  "name": "portfolio-backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon"
+  },
+  "dependencies": {
+    "concurrently": "^5.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "nodemailer": "^6.4.10"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
