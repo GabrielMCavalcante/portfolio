@@ -24,7 +24,7 @@ function FormResponse(props: { status: string, onclose: () => void}) {
                             : <FiXCircle />
                         }
                     </div>
-                    <button onClick={props.onclose}>Close</button>
+                    <button className="ResponseAction" onClick={props.onclose}>Close</button>
                 </div>
             </div>
         </div>
