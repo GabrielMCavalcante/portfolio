@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const configuredAxios = axios.create({
-    baseURL: 'https://firestore.googleapis.com/v1/projects/gabrielcavalcante-portfolio/databases/(default)/documents/'
+    baseURL: 'firestore documents REST API url'
 })
 
 export default configuredAxios
